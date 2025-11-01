@@ -25,8 +25,8 @@ spec:
         path: helm-charts
         helm:
           valueFiles:
-            - "manifests/{{ $ws }}/prod/immutable/{{ $app }}"
-            - "app-charts/env-configs/prod/values.yaml"
+            - "/manifests/{{ $ws }}/prod/immutable/{{ $app }}"
+            - "/app-charts/env-configs/prod/values.yaml"
       destination:
         server: '{{"{{"}}url{{"}}"}}'
         namespace: {{ $.Values.appNamespace }}-ns
