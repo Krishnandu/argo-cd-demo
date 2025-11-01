@@ -1,4 +1,4 @@
-repoUrl: https://github.com/your-org/gitops-demo.git # 👈 change
+repoUrl: https://github.com/Krishnandu/gitops-demo.git # 👈 change
 targetRevision: main
 namespace: argocd
 project: default
