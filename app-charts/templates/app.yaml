@@ -27,7 +27,6 @@ spec:
           valueFiles:
             - "/manifests/{{ $ws }}/{{ $.Values.env.name }}/immutable/{{ $app }}"
             - "/app-charts/env-configs/prod/values.yaml"
-            - "/parent-app-chart/values.yaml"
       destination:
         server: '{{"{{"}}url{{"}}"}}'
         namespace: {{ $.Values.appNamespace }}-ns
