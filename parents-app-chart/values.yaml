@@ -1,0 +1,8 @@
+repoUrl: https://github.com/your-org/gitops-demo.git # 👈 change
+targetRevision: main
+namespace: argocd
+project: default
+
+env:
+  name: prod
+

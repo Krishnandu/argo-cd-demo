@@ -1,0 +1,3 @@
+workstreamapps:
+  workstream1:
+    - sample-api.yaml

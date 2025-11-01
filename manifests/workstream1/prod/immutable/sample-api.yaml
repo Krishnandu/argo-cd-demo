@@ -1,0 +1,11 @@
+appNamespace: demo
+appKind: microservice
+
+image:
+  repository: sample-api
+  tag: "1.0.0"
+
+port: 8080
+targetports:
+  - name: http
+    value: 8080

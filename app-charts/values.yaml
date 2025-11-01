@@ -1,0 +1,7 @@
+repoUrl: https://github.com/your-org/gitops-demo.git
+
+env:
+  name: prod
+  region: apac
+
+appNamespace: demo

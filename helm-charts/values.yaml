@@ -1,0 +1,11 @@
+appNamespace: demo
+appKind: microservice
+
+image:
+  repository: nginx
+  tag: latest
+
+port: 80
+targetports:
+  - name: http
+    value: 80

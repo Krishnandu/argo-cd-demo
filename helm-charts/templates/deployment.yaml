@@ -1,0 +1,22 @@
+{{- if or (eq .Values.appKind "microservice") (eq .Values.appKind "web") }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.image.repository }}-deployment
+  namespace: {{ .Values.appNamespace }}-ns
+spec:
+  replicas: {{ .Values.replicaCount | default 1 }}
+  selector:
+    matchLabels:
+      app: {{ .Values.image.repository }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.image.repository }}
+    spec:
+      containers:
+        - name: {{ .Values.image.repository }}
+          image: {{ .Values.containerregistry.name | default "" }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}
+          ports:
+            - containerPort: {{ .Values.port }}
+{{- end }}

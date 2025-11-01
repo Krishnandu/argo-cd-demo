@@ -1,0 +1,16 @@
+{{- if or (eq .Values.appKind "microservice") (eq .Values.appKind "web") }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.image.repository }}-svc
+  namespace: {{ .Values.appNamespace }}-ns
+spec:
+  selector:
+    app: {{ .Values.image.repository }}
+  ports:
+    {{- range .Values.targetports }}
+    - name: {{ .name }}
+      port: {{ .value }}
+      targetPort: {{ .value }}
+    {{- end }}
+{{- end }}

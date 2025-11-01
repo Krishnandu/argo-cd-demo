@@ -1,0 +1,40 @@
+{{- range $ws, $apps := .Values.workstreamapps -}}
+  {{- range $app := $apps -}}
+    {{- $filename := split "." $app -}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: "{{ $ws }}-{{ $filename._0 }}"
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - cluster: prod
+            url: https://kubernetes.default.svc
+            revision: {{ $.Values.env.name | upper }}
+  template:
+    metadata:
+      name: '{{"{{"}}cluster{{"}}"}}-{{ $ws }}-{{ $filename._0 }}'
+    spec:
+      project: default
+      source:
+        repoURL: {{ $.Values.repoUrl }}
+        targetRevision: '{{"{{"}}revision{{"}}"}}'
+        path: helm-charts
+        helm:
+          valueFiles:
+            - "/manifests/{{ $ws }}/{{ $.Values.env.name }}/immutable/{{ $app }}"
+            - "/app-charts/env-configs/{{ $.Values.env.name }}/values.yaml"
+            - "/parent-app-chart/values.yaml"
+      destination:
+        server: '{{"{{"}}url{{"}}"}}'
+        namespace: {{ $.Values.appNamespace }}-ns
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+        automated:
+          selfHeal: true
+  {{- end -}}
+{{- end -}}
