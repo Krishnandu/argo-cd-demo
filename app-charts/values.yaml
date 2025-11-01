@@ -1,4 +1,4 @@
-repoUrl: https://github.com/Krishnandu/gitops-demo.git  # 👈 change
+repoUrl: https://github.com/Krishnandu/argo-cd-demo.git  # 👈 change
 
 env:
   name: main # 👈 change (This needs to be your branch name that you want to sync)
