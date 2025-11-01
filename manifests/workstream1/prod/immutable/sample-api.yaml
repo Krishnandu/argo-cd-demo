@@ -2,7 +2,7 @@ appNamespace: demo
 appKind: microservice
 
 image:
-  repository: sample-api
+  repository: nginx
   tag: "1.0.0"
 
 port: 8080
