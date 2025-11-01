@@ -1,7 +1,7 @@
-repoUrl: https://github.com/Krishnandu/gitops-demo.git 
+repoUrl: https://github.com/Krishnandu/gitops-demo.git  # 👈 change
 
 env:
-  name: prod
+  name: main # 👈 change (This needs to be your branch name that you want to sync)
   region: apac
 
 appNamespace: demo
