@@ -1,3 +1,6 @@
 workstreamapps:
   workstream1:
     - sample-api.yaml
+
+containerregistry:
+  name: docker.io
