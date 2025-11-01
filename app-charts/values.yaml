@@ -5,3 +5,6 @@ env:
   region: apac
 
 appNamespace: demo
+
+containerregistry:
+  name: docker.io
