@@ -13,7 +13,7 @@ spec:
         elements:
           - cluster: prod
             url: https://kubernetes.default.svc
-            revision: {{ $.Values.env.name | upper }}
+            revision: {{ $.Values.env.name }}
   template:
     metadata:
       name: '{{"{{"}}cluster{{"}}"}}-{{ $ws }}-{{ $filename._0 }}'
