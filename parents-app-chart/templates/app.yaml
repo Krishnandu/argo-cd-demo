@@ -12,7 +12,7 @@ spec:
     helm:
       valueFiles:
         - "./env-configs/{{ .Values.env.name }}/values.yaml"
-        - "/parent-app-chart/values.yaml"
+        - "parent-app-chart/values.yaml"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: "argocd"
